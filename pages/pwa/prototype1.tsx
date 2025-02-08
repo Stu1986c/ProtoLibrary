@@ -1,6 +1,5 @@
 // pages/pwa/prototype1.tsx
 import React, { useState, useEffect } from 'react';
-import { QRCodeCanvas } from 'qrcode.react';
 import styles from '../../app/Prototype1PWA.module.css';
 
 const Prototype1PWA: React.FC = () => {
