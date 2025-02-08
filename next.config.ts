@@ -3,13 +3,18 @@ import { NextConfig } from 'next';
 import withPWA from 'next-pwa';
 
 const nextConfig: NextConfig = {
-  // Place any standard Next.js configuration options here.
+  // Other Next.js options (do not include a "pwa" property here)
+  // For example:
+  env: {
+    API_URL: process.env.API_URL,
+  },
+  images: {
+    disableStaticImages: true,
+  },
+  // ... any other options
 };
 
 export default withPWA({
-  pwa: {
-    dest: 'public', // Where the service worker and precache manifest will be generated.
-    disable: process.env.NODE_ENV === 'development', // Disable PWA in development mode
-  },
-  ...nextConfig,
-});
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+})(nextConfig);
