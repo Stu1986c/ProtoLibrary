@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Prototype1: React.FC = () => {
   // URL for the PWA version of Prototype 1.
-  const pwaUrl = 'https://your-domain.com/pwa/prototype1';
+  const pwaUrl = 'https://proto-library.vercel.app/pwa/prototype1';
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
