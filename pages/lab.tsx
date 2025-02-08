@@ -1,6 +1,8 @@
 // pages/lab.tsx
 import React from 'react';
 import styles from '../app/Lab.module.css';
+import Image from 'next/image';
+
 
 const Lab = () => {
   // For this example, we'll create three rows.
@@ -19,13 +21,19 @@ const Lab = () => {
             <p>{placeholderText}</p>
           </div>
           <div className={styles.imageBlock}>
-            <img src={placeholderImage} alt="Placeholder" />
+            <Image 
+              src={placeholderImage}
+               alt="Placeholder" 
+            />
           </div>
           <div className={styles.textBlock}>
             <p>{placeholderText}</p>
           </div>
           <div className={styles.imageBlock}>
-            <img src={placeholderImage} alt="Placeholder" />
+            <Image 
+              src={placeholderImage} 
+              alt="Placeholder" 
+            />
           </div>
         </div>
       ))}

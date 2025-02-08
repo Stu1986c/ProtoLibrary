@@ -1,5 +1,5 @@
-// pages/_app.js or pages/_app.tsx
 import localFont from 'next/font/local';
+import type { AppProps } from 'next/app';
 import '../app/globals.css';
 
 const ppNeueMontreal = localFont({
@@ -19,7 +19,7 @@ const ppNeueMontreal = localFont({
   variable: '--font-pp-neue-montreal',
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className={ppNeueMontreal.variable}>
       <Component {...pageProps} />
