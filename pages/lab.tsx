@@ -27,8 +27,9 @@ export default function Lab() {
             </div>
             <div className={styles.imageBlock}>
               <Image
-                src={placeholderImage}
+                src="/PWA.png"
                 alt="Placeholder"
+                style={{marginTop: '30px'}}
                 width={300}
                 height={600}
                 layout="responsive"

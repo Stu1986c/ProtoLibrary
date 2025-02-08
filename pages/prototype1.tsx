@@ -21,8 +21,7 @@ const Prototype1: React.FC = () => {
         </div>
         <p className={styles.subDescription}>
           Or click{' '}
-          <Link href="/pwa/prototype1">
-            <a className={styles.link}>here</a>
+          <Link href="/pwa/prototype1" className={styles.link}>
           </Link>{' '}
           to try the PWA version.
         </p>
