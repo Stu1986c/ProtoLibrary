@@ -26,25 +26,7 @@ const nextConfig: NextConfig = {
       },
     });
 
-    // Add a loader for PNG (and similar) assets inside react-native-wheel-of-fortune's assets folder
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif|svg)$/,
-      include: /node_modules[\\/]react-native-wheel-of-fortune[\\/]assets/,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
-            fallback: 'file-loader',
-            publicPath: '/_next/static/images/',
-            outputPath: 'static/images/',
-            name: '[name].[hash].[ext]',
-            esModule: false,
-          },
-        },
-      ],
-    });
-
+    // (No additional rule for CSS is needed since Next.js handles it automatically)
     return config;
   },
 };
@@ -54,8 +36,8 @@ const pwaOptions = {
   disable: process.env.NODE_ENV === 'development',
 };
 
-// Use next-transpile-modules to transpile react-native-wheel-of-fortune
+// Use next-transpile-modules for react-native-wheel-of-fortune
 const withTMConfig = withTM(['react-native-wheel-of-fortune']);
 
-// Wrap the config with next-pwa and next-transpile-modules
+// Export the config wrapped with next-pwa and next-transpile-modules
 export default withTMConfig(withPWA(pwaOptions)(nextConfig));
