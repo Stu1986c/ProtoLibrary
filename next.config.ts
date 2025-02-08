@@ -5,6 +5,10 @@ import withPWA from 'next-pwa';
 const nextConfig: NextConfig = {
   // Other Next.js options (do not include a "pwa" property here)
   // For example:
+  webpack: (config) => {
+    config.resolve.alias['react-native'] = 'react-native-web';
+    return config;
+  },
   env: {
     API_URL: process.env.API_URL,
   },
