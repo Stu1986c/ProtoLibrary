@@ -1,11 +1,13 @@
+// pages/pwa/prototype1.tsx
 import React, { useState, useEffect } from 'react';
+import { QRCodeCanvas } from 'qrcode.react';
+import styles from '../../app/Prototype1PWA.module.css';
 
 const Prototype1PWA: React.FC = () => {
-  // A simple counter state with persistence
   const [counter, setCounter] = useState<number>(0);
   const [inputText, setInputText] = useState<string>('');
 
-  // On mount, load the counter value from localStorage (if it exists)
+  // Load counter from localStorage on mount
   useEffect(() => {
     const storedCounter = localStorage.getItem('counter');
     if (storedCounter !== null) {
@@ -13,64 +15,38 @@ const Prototype1PWA: React.FC = () => {
     }
   }, []);
 
-  // Whenever the counter changes, store the value in localStorage
+  // Save counter to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('counter', counter.toString());
   }, [counter]);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        backgroundColor: '#f0f0f0',
-        fontFamily: 'Arial, sans-serif',
-        padding: '20px',
-        color: '#47201C',
-      }}
-    >
+    <div className={styles.container}>
       <h1>A Simple, Interactive PWA</h1>
       <h2>Counter: {counter}</h2>
-      <div style={{ margin: '10px' }}>
+      <div className={styles.buttonGroup}>
         <button
           onClick={() => setCounter(counter + 1)}
-          style={{
-            padding: '10px 20px',
-            fontSize: '16px',
-            marginRight: '10px',
-            cursor: 'pointer',
-          }}
+          className={styles.button}
         >
           Increment
         </button>
         <button
           onClick={() => setCounter(0)}
-          style={{
-            padding: '10px 20px',
-            fontSize: '16px',
-            cursor: 'pointer',
-          }}
+          className={styles.button}
         >
           Reset
         </button>
       </div>
-      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+      <div className={styles.inputContainer}>
         <input
           type="text"
           placeholder="Type something..."
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          style={{
-            padding: '10px',
-            fontSize: '16px',
-            width: '250px',
-            marginBottom: '10px',
-          }}
+          className={styles.inputField}
         />
-        <p style={{ fontSize: '18px' }}>You typed: {inputText}</p>
+        <p className={styles.typedText}>You typed: {inputText}</p>
       </div>
     </div>
   );

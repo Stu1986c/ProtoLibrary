@@ -1,0 +1,63 @@
+/* styles/Prototype1PWA.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    color: #47201C;
+    font-size: 0.8rem;
+  }
+  
+  .buttonGroup {
+    margin: 10px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 10px 10px;
+    font-size: 1.5rem;
+    color:  #F8F6F2;
+    background-color: #47201C;
+    text-decoration: none;
+    border-radius: 9999px; /* Makes it pill-shaped */
+    border: 2px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: transparent;
+    border-color: #47201C;
+    color: #47201C;
+  }
+  
+  .inputContainer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .inputField {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    margin-bottom: 10px;
+    border-radius: 11px; /* Slightly rounded corners */
+    border: 1px solid #ccc; /* Optional, for a clear border */
+    outline: none;
+    border-color: #47201C;
+  }
+
+  .inputField::placeholder {
+    font-size: 0.875rem; /* approx. 14px */
+    text-align: left;
+  }
+  
+  .typedText {
+    font-size: 18px;
+  }
+  
