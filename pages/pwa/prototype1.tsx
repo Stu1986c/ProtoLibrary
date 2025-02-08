@@ -1,47 +1,77 @@
-// pages/pwa/prototype1.tsx
-import React, { useRef, useState } from 'react';
-import { View, Text, Button } from 'react-native';
-import WheelOfFortune from 'react-native-wheel-of-fortune';
+import React, { useState, useEffect } from 'react';
 
 const Prototype1PWA: React.FC = () => {
-  const wheelRef = useRef<any>(null);
-  const [winner, setWinner] = useState<string | null>(null);
+  // A simple counter state with persistence
+  const [counter, setCounter] = useState<number>(0);
+  const [inputText, setInputText] = useState<string>('');
 
-  // Define the rewards (or prizes) for the wheel.
-  const rewards = ['Prize 1', 'Prize 2', 'Prize 3', 'Prize 4'];
+  // On mount, load the counter value from localStorage (if it exists)
+  useEffect(() => {
+    const storedCounter = localStorage.getItem('counter');
+    if (storedCounter !== null) {
+      setCounter(parseInt(storedCounter, 10));
+    }
+  }, []);
 
-  // Callback when the spin ends.
-  const onSpinEnd = (index: number) => {
-    setWinner(rewards[index]);
-  };
+  // Whenever the counter changes, store the value in localStorage
+  useEffect(() => {
+    localStorage.setItem('counter', counter.toString());
+  }, [counter]);
 
   return (
-    <View style={{ flex: 1, padding: 20, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>Spin the Wheel!</Text>
-      <WheelOfFortune
-        rewards={rewards}
-        duration={6000}
-        onSpinEnd={onSpinEnd}
-        onRef={(ref) => (wheelRef.current = ref)}
-        knobSize={30}
-        borderWidth={5}
-        radius={150}
-        innerRadius={30}
-      />
-      {winner && (
-        <Text style={{ fontSize: 20, marginTop: 20 }}>
-          You won: {winner}
-        </Text>
-      )}
-      <Button
-        title="Spin"
-        onPress={() => {
-          if (wheelRef.current && wheelRef.current._onPress) {
-            wheelRef.current._onPress();
-          }
-        }}
-      />
-    </View>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        backgroundColor: '#f0f0f0',
+        fontFamily: 'Arial, sans-serif',
+        padding: '20px',
+      }}
+    >
+      <h1>My Interactive PWA</h1>
+      <h2>Counter: {counter}</h2>
+      <div style={{ margin: '10px' }}>
+        <button
+          onClick={() => setCounter(counter + 1)}
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            marginRight: '10px',
+            cursor: 'pointer',
+          }}
+        >
+          Increment
+        </button>
+        <button
+          onClick={() => setCounter(0)}
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            cursor: 'pointer',
+          }}
+        >
+          Reset
+        </button>
+      </div>
+      <div style={{ marginTop: '20px', textAlign: 'center' }}>
+        <input
+          type="text"
+          placeholder="Type something..."
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          style={{
+            padding: '10px',
+            fontSize: '16px',
+            width: '250px',
+            marginBottom: '10px',
+          }}
+        />
+        <p style={{ fontSize: '18px' }}>You typed: {inputText}</p>
+      </div>
+    </div>
   );
 };
 
