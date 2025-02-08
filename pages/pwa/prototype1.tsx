@@ -29,9 +29,10 @@ const Prototype1PWA: React.FC = () => {
         backgroundColor: '#f0f0f0',
         fontFamily: 'Arial, sans-serif',
         padding: '20px',
+        color: '#47201C',
       }}
     >
-      <h1>My Interactive PWA</h1>
+      <h1>A Simple, Interactive PWA</h1>
       <h2>Counter: {counter}</h2>
       <div style={{ margin: '10px' }}>
         <button
