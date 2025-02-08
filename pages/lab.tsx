@@ -1,44 +1,58 @@
 // pages/lab.tsx
-import React from 'react';
-import styles from '../app/Lab.module.css';
+import Link from 'next/link';
 import Image from 'next/image';
+import styles from '../app/Lab.module.css';
 
-
-const Lab = () => {
-  // For this example, we'll create three rows.
-  const rows = [1, 2, 3];
-
-  // Placeholder content
-  const placeholderText =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-  const placeholderImage = "/phone placeholder.png";
+export default function Lab() {
+  // For demonstration, we'll render three rows.
+  const rows = [1, 2];
+  const placeholderImage = "/phone placeholder.png"; // Ensure this image exists in your public folder
 
   return (
     <div className={styles.container}>
-      {rows.map((row, index) => (
-        <div key={index} className={styles.row}>
-          <div className={styles.textBlock}>
-            <p>{placeholderText}</p>
+      <div className={styles.rowsContainer}>
+        {rows.map((row, index) => (
+          <div key={index} className={styles.row}>
+            <div className={styles.overview}>
+              <h3 className={styles.mainHeading}>My Initial PWA Test</h3>
+              <p className={styles.description}>
+                This is my initial attempt at a Progressive Web App (PWA). The benefits of a PWA include:
+                <ul>
+                  <li>Users can access prototypes on their phone without needing to download anything. Just scan a QR code!</li>
+                  <li>Uses our existing Frontend tech (with an extra sprinkle of magic)</li>
+                  <li>Uncoupled from our existing codebase (this is code created with the intention of gaining user insights) </li>
+                </ul>
+              </p>
+              <Link href="/prototype1" className={styles.button}>View Prototype</Link>
+            </div>
+            <div className={styles.imageBlock}>
+              <Image
+                src={placeholderImage}
+                alt="Placeholder"
+                width={300}
+                height={600}
+                layout="responsive"
+              />
+            </div>
+            <div className={styles.overview}>
+              <h3 className={styles.mainHeading}>Prototype Overview</h3>
+              <p className={styles.description}>
+                This is a brief description of the prototype. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+              <Link href="/prototype1" className={styles.button}>View Prototype</Link>
+            </div>
+            <div className={styles.imageBlock}>
+              <Image
+                src={placeholderImage}
+                alt="Placeholder"
+                width={300}
+                height={600}
+                layout="responsive"
+              />
+            </div>
           </div>
-          <div className={styles.imageBlock}>
-            <Image 
-              src={placeholderImage}
-               alt="Placeholder" 
-            />
-          </div>
-          <div className={styles.textBlock}>
-            <p>{placeholderText}</p>
-          </div>
-          <div className={styles.imageBlock}>
-            <Image 
-              src={placeholderImage} 
-              alt="Placeholder" 
-            />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
-};
-
-export default Lab;
+}

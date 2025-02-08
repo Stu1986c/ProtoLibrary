@@ -1,25 +1,32 @@
-// pages/prototype1.tsx
 import React from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import Link from 'next/link';
+import styles from '../app/Prototype1.module.css';
 
 const Prototype1: React.FC = () => {
   // URL for the PWA version of Prototype 1.
   const pwaUrl = 'https://proto-library.vercel.app/pwa/prototype1';
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Prototype 1 Details</h1>
-      <p>
-        Here are the details of Prototype 1. Users can try out this prototype by scanning the QR code below.
-      </p>
-      <h2>Try It as a Progressive Web App</h2>
-      <QRCodeCanvas value={pwaUrl} size={150} />
-      <p>
-        Or click{' '}
-        <Link href="/pwa/prototype1">here</Link>
-        to try the PWA version.
-      </p>
+    <div className={styles.container}>
+      <header className={styles.header}>
+        <h1>Prototype 1 Details</h1>
+      </header>
+      <section className={styles.content}>
+        <p className={styles.description}>
+          Here are the details of Prototype 1. Users can try out this prototype by scanning the QR code below.
+        </p>
+        <div className={styles.qrContainer}>
+          <QRCodeCanvas value={pwaUrl} size={150} />
+        </div>
+        <p className={styles.subDescription}>
+          Or click{' '}
+          <Link href="/pwa/prototype1">
+            <a className={styles.link}>here</a>
+          </Link>{' '}
+          to try the PWA version.
+        </p>
+      </section>
     </div>
   );
 };
