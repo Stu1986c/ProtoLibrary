@@ -1,9 +1,10 @@
 /* styles/About.module.css */
 .container {
-    padding: 20px;
+    padding: 30px;
     max-width: 1200px;
     margin: 0 auto;
     color: #333;
+    background-color: #F8F6F2;
     font-family: var(--font-pp-neue-montreal), sans-serif;
   }
   
