@@ -10,7 +10,6 @@ export default function About() {
         <h1>About Cleo Labs</h1>
       </header>
       <main className={styles.main}>
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
         <section className={styles.section}>
           <p className={styles.text}>
             Welcome to Cleo Labs. This in itself is a prototype of a prototype library. How meta! 😅
