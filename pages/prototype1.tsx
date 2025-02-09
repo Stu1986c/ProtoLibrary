@@ -17,7 +17,16 @@ const Prototype1: React.FC = () => {
           Here are the details of Prototype 1. Users can try out this prototype by scanning the QR code below.
         </p>
         <div className={styles.qrContainer}>
-          <QRCodeCanvas value={pwaUrl} size={150} />
+          <QRCodeCanvas 
+            value={pwaUrl}
+            size={150} 
+            imageSettings={{
+              src: '/Cleo Light.png',  // Ensure this image is placed in your public folder
+              height: 12.5,
+              width: 25,
+              excavate: true,
+            }}
+          />
         </div>
         <p className={styles.subDescription}>
           Or click{' '}
