@@ -1,6 +1,8 @@
 import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
 import '../app/globals.css';
+import useSmartlook from '../hooks/smartlook';
+
 
 const ppNeueMontreal = localFont({
   src: [
@@ -20,6 +22,8 @@ const ppNeueMontreal = localFont({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useSmartlook();
+
   return (
     <div className={ppNeueMontreal.variable}>
       <Component {...pageProps} />
