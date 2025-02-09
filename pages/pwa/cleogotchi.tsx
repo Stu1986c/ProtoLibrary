@@ -13,7 +13,7 @@ const Cleogotchi: React.FC = () => {
   useEffect(() => {
     const energyInterval = setInterval(() => {
       setEnergy(prev => Math.max(prev - 2, 0));
-    }, 15000);
+    }, 5000);
     return () => clearInterval(energyInterval);
   }, []);
 
@@ -21,7 +21,7 @@ const Cleogotchi: React.FC = () => {
   useEffect(() => {
     const happinessInterval = setInterval(() => {
       setHappiness(prev => Math.max(prev - 5, 0));
-    }, 30000);
+    }, 10000);
     return () => clearInterval(happinessInterval);
   }, []);
 
