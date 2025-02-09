@@ -28,7 +28,7 @@ export default function Lab() {
             <div className={styles.imageBlock}>
               <Image
                 src="/PWA.png"
-                alt="Placeholder"
+                alt="PWA"
                 style={{ marginTop: '30px' }}
                 width={300}
                 height={600}
@@ -36,16 +36,25 @@ export default function Lab() {
               />
             </div>
             <div className={styles.overview}>
-              <h3 className={styles.mainHeading}>Prototype Overview</h3>
+              <h3 className={styles.mainHeading}>Cleogotchi</h3>
               <p className={styles.description}>
-                This is a brief description of the prototype. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Who remembers the '90s? A time when everyone was walking around with a cyber pet in their pocket.
               </p>
+              <p className={styles.description}>
+                Let us give you a healthy dose of nostalgia with your very own Cleogotchi - modelled on my very own, Baloo.
+              </p>
+              <ul className={styles.description}>
+                <li>His energy and happiness will deplete over time</li>
+                <li>Play with him to cheer him up!</li>
+                <li>Feed him to fill his hungry belly</li>
+              </ul>
               <Link href="/cleogotchi" className={styles.button}>View Prototype</Link>
             </div>
             <div className={styles.imageBlock}>
               <Image
-                src={placeholderImage}
-                alt="Placeholder"
+                src="/Cleogotchi.png"
+                alt="Cleogotchi"
+                style={{ marginTop: '30px' }}
                 width={300}
                 height={600}
                 layout="responsive"
