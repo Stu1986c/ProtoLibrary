@@ -2,6 +2,10 @@ import localFont from 'next/font/local';
 import type { AppProps } from 'next/app';
 import '../app/globals.css';
 import useSmartlook from '../hooks/smartlook';
+import NavBar from '../components/navbar';
+import { useRouter } from 'next/router';
+
+
 
 
 const ppNeueMontreal = localFont({
@@ -16,7 +20,6 @@ const ppNeueMontreal = localFont({
       weight: '700',
       style: 'normal',
     },
-    // Add other font weights and styles as needed
   ],
   variable: '--font-pp-neue-montreal',
 });
@@ -24,8 +27,22 @@ const ppNeueMontreal = localFont({
 function MyApp({ Component, pageProps }: AppProps) {
   useSmartlook();
 
+  const router = useRouter();
+
+  // List exact routes to hide the nav bar
+  const hideNavExact = ['/'];
+  // List route prefixes where nav bar should be hidden (e.g., /pwa/...)
+  const hideNavPrefixes = ['/pwa'];
+
+  // Determine if current route should have the nav bar
+  const shouldShowNav =
+    !hideNavExact.includes(router.pathname) &&
+    !hideNavPrefixes.some(prefix => router.pathname.startsWith(prefix));
+
+
   return (
     <div className={ppNeueMontreal.variable}>
+      {shouldShowNav && <NavBar />}
       <Component {...pageProps} />
     </div>
   );
