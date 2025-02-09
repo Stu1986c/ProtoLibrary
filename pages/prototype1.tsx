@@ -1,7 +1,6 @@
 import React from 'react';
 import { QRCodeCanvas } from 'qrcode.react';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from '../app/Prototype1.module.css';
 
 const Prototype1: React.FC = () => {
