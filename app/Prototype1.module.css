@@ -1,41 +1,93 @@
 /* styles/Prototype1.module.css */
 .container {
-    padding: 2rem;
-    font-family: sans-serif;
-    color: #47201C;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-  }
-  
-  .header {
-    margin-bottom: 1rem;
-    color: #47201C;
+  position: relative;
+  background-color: #F8F6F2;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-pp-neue-montreal), sans-serif;
+}
 
+/* Overlay to mimic /lab background: fixed so it covers only the viewport */
+.container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Only covers the visible viewport */
+  /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%); */
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure columns are positioned above the overlay */
+.leftColumn,
+.rightColumn {
+  position: relative;
+  z-index: 1;
+}
+
+.leftColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 700px;
+}
+
+.rightColumn {
+  flex: 1;
+  max-width: 300px;
+}
+
+/* Optional: if you have additional styling for text content, QR code, or links */
+.textContent {
+  text-align: left;
+  color: #47201C;
+}
+
+.qrCode {
+  display: flex;
+  justify-content: center;
+}
+
+
+.linkContainer {
+  margin-top: 10px;
+}
+
+.description{
+  font-size: 1.2rem;
+  color: #47201C;
+}
+
+.linkButton {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #47201C;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.linkButton:hover {
+  background-color: #ff4500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
-  
-  .content {
-    text-align: center;
+  .leftColumn,
+  .rightColumn {
+    max-width: 100%;
   }
-  
-  .description {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .qrContainer {
-    margin-bottom: 1.5rem;
-  }
-  
-  .subDescription {
-    font-size: 1.1rem;
-  }
-  
-  .link {
-    color: #47201C;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
+}

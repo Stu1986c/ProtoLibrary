@@ -5,7 +5,7 @@ import styles from '../app/Lab.module.css';
 
 export default function Lab() {
   // For demonstration, we'll render three rows.
-  const rows = [1, 2];
+  const rows = [1];
   const placeholderImage = "/phone placeholder.png"; // Ensure this image exists in your public folder
 
   return (
@@ -14,7 +14,7 @@ export default function Lab() {
         {rows.map((row, index) => (
           <div key={index} className={styles.row}>
             <div className={styles.overview}>
-              <h3 className={styles.mainHeading}>My Initial PWA Test</h3>
+              <h3 className={styles.mainHeading}>PWA Test</h3>
               <p className={styles.description}>
                 This is my initial attempt at a Progressive Web App (PWA). The benefits of a PWA include:
               </p>
@@ -40,7 +40,7 @@ export default function Lab() {
               <p className={styles.description}>
                 This is a brief description of the prototype. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
-              <Link href="/prototype1" className={styles.button}>View Prototype</Link>
+              <Link href="/cleogotchi" className={styles.button}>View Prototype</Link>
             </div>
             <div className={styles.imageBlock}>
               <Image
@@ -53,6 +53,42 @@ export default function Lab() {
             </div>
           </div>
         ))}
+      </div>
+      <div className={styles.row}>
+        <div className={styles.overview}>
+          <h3 className={styles.mainHeading}>Another prototype in the making...</h3>
+          <p className={styles.description}>
+            Another prototype is currently being worked upon in our lab. Keep your eyes peeled for when it's ready to 
+            be tried out!
+          </p>
+          <Link href="/lab" className={styles.button}>View Prototype</Link>
+        </div>
+        <div className={styles.imageBlock}>
+          <Image
+            src={placeholderImage}
+            alt="Placeholder"
+            width={300}
+            height={600}
+            layout="responsive"
+          />
+        </div>
+        <div className={styles.overview}>
+          <h3 className={styles.mainHeading}>Another prototype in the making...</h3>
+          <p className={styles.description}>
+            Another prototype is currently being worked upon in our lab. Keep your eyes peeled for when it's ready to 
+            be tried out!
+          </p>
+          <Link href="/lab" className={styles.button}>View Prototype</Link>
+        </div>
+        <div className={styles.imageBlock}>
+          <Image
+            src={placeholderImage}
+            alt="Placeholder"
+            width={300}
+            height={600}
+            layout="responsive"
+          />
+        </div>
       </div>
     </div>
   );

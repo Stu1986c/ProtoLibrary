@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../app/Prototype1.module.css';
 
-const Prototype1: React.FC = () => {
+const Cleogotchi: React.FC = () => {
   // URL for the PWA version of Prototype 1
-  const pwaUrl = 'https://proto-library.vercel.app/pwa/prototype1';
+  const pwaUrl = 'https://proto-library.vercel.app/pwa/cleogotchi';
 
   return (
     <div className={styles.container}>
@@ -50,4 +50,4 @@ const Prototype1: React.FC = () => {
   );
 };
 
-export default Prototype1;
+export default Cleogotchi;
